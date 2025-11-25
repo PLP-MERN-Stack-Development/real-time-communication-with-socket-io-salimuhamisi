@@ -78,27 +78,25 @@ export const useSocket = () => {
     };
 
     const onUserJoined = (user) => {
-      // You could add a system message here
       setMessages((prev) => [
         ...prev,
         {
           id: Date.now(),
           system: true,
-          message: `${user.username} joined the chat`,
-          timestamp: new Date().toISOString(),
+          message: `${user.username} joined chat`,
+          timestamp: user.timestamp,
         },
       ]);
     };
 
     const onUserLeft = (user) => {
-      // You could add a system message here
       setMessages((prev) => [
         ...prev,
         {
           id: Date.now(),
           system: true,
-          message: `${user.username} left the chat`,
-          timestamp: new Date().toISOString(),
+          message: `${user.username} left chat`,
+          //timestamp: user.timestamp,
         },
       ]);
     };
